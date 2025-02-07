@@ -1,0 +1,48 @@
+Topic 2 - Getting info from databases
+
+1. The school database was already present in the list of databases so no need to import.
+2. Use 'DESCRIBE' to show type column which includes maximum length thresholds. - 20
+3. Primary key is 'tid', again describe shows makeup of table.
+4. Primary key is 'name', again describe shows makeup of table.
+5. SELECT * FROM 'subject' shows all data in the table.
+
+6. SELECT name, OnLeavingCert 
+   FROM subject
+   WHERE OnLeavingCert = 1;
+   
+   	Select the columns I visualized needing and then applied WHERE to the dependent column.
+
+7.SELECT name, level
+  FROM Teacher
+  WHERE level = "L";
+	Select the columns I visualized needing and then applied WHERE to the dependent column.
+
+8. SELECT Name, Teacher FROM subject
+   WHERE Teacher NOT LIKE "%Mr.%"
+	You can use regex in sql queries, who knew?!
+
+9. SELECT * FROM teacher
+   WHERE (MONTH(dob) IN (1,2,3))
+   AND level = "J"
+	I tried to use regex to return last 4 digits of dob less than 301 but couldn't get it to work. MONTH 	function is far easier when dealing with date type. 1,2,3 are simple Jan, Feb, Mar.
+
+10. Stuck, there has to be a clever way to do this.. I might not even need the name column
+    SELECT DISTINCT MONTHNAME(dob) FROM teacher;
+
+11. Show all details of all teachers, sorted by first by experience, then level.
+    SELECT * FROM teacher
+    ORDER BY experience, level;
+
+12. Show all details of all subjects whose 3rd or 4th letter is “l”. Sort them by name.
+    SELECT * FROM subject
+    WHERE Name like "%__l%"
+    AND Name like "%___l%"
+    ORDER BY name;
+	When using the WHERE along with AND/OR, you don't need to restate the WHERE.
+
+
+13. Show the name of all teachers who have 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 or 60 years
+experience. Sort from youngest to oldest
+    SELECT name, experience FROM subject
+    WHERE experience % 5 = 0;
+	One shot it! Modulus saves the day again! Patterns baby!
