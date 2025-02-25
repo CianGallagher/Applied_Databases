@@ -87,3 +87,16 @@
 	where gender like "f"
  	and birth_date like "__5%"
 	and hire_date between "1988-09-01" and "1991-02-28";
+
+** Topic 4 - Exercises **	
+	 
+
+3.	sql> select manu_code, manu_name,concat(left(manu_details, 10), "...")
+    	from manufacturer;
+		
+
+4. 	mysql> SELECT FORMAT(AVG(LENGTH(manu_name)),0)
+    	from manufacturer;
+
+
+
