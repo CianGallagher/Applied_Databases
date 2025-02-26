@@ -98,5 +98,25 @@
 4. 	mysql> SELECT FORMAT(AVG(LENGTH(manu_name)),0)
     	from manufacturer;
 
+5.	mysql> select *, IF(fuel="petrol",1.45,1.30) as cost
+	from vehicle;
+
+
+6.	mysql> select v.reg, v.manu_code, m.manu_name
+	from vehicle v
+	inner join manufacturer m
+	on v.manu_code = m.manu_code;
+
+
+7.	mysql> select m.manu_code, m.manu_name, v.reg
+	from manufacturer m
+	inner join vehicle v
+	on m.manu_code = v.manu_code;
+
+
+8. 	mysql> select m.manu_code, m.manu_name, v.reg
+	from manufacturer m
+	left join vehicle v
+	on m.manu_code = v.manu_code
 
 
