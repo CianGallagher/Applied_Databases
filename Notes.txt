@@ -120,3 +120,36 @@
 	on m.manu_code = v.manu_code
 
 
+** Topic 5 Insert, Update, Delete - Exercises **
+
+1.	Clearing command line - system cls;
+
+	Importing a database via command client: 	Create database bus;
+							Use bus;
+							Source C:\Users\appDB\Desktop\bus2.sql;
+
+
+2.	How are the tables in the database related?
+	In bus, 'reg' is the primary key. 
+	
+	In driver, 'licenseno' is primary and 'busreg' is a multiple key
+
+3.	
+	Add the following drivers:
+	“Mary”
+	“Bob” – licence number “RN2423”
+	“Sean” – licence number “FF88345” who drives bus “191-G-123”
+	What happens and why?
+	
+	Mary can't be added without a license as NULL is not allowed.
+
+4. 	Add the following buses:
+	"12-G-1323" that can hold up to 34 passengers and runs on "Diesel"
+	"171-G-885" that can hold up to 84 passengers and runs on "Petrol"
+	"191-D-45890" that can hold up to 120 passengers and runs on "Ethanol"
+	What happens and why?
+	First bus is already in the table.
+	Second bus inserts without issue.
+	Third bus throws and error due to fuel type being outside parameters. 
+
+
